@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# REACT NOTES
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## REACT
+ReactJS is an open-source JavaScript library for building user interfaces, created by Facebook. It allows developers to build complex UIs using a component-based architecture, where each component represents a part of the user interface. React uses a virtual DOM (Document Object Model) to efficiently update and render components, improving the performance and user experience of web applications. It is widely used for building web applications, mobile applications, and desktop applications.
 
-## Available Scripts
+## DOM
+In React, the DOM (Document Object Model) is a programming interface that represents the structure of an HTML or XML document as a tree-like structure of nodes. React uses a virtual DOM, a lightweight representation of the actual DOM, to efficiently manage and update the UI of a web application. The virtual DOM is used to minimize the number of changes required to update the actual DOM, resulting in faster and more efficient web applications.
 
-In the project directory, you can run:
+## JSX
 
-### `npm start`
+JSX is a syntax extension used in React that allows developers to write HTML-like code in JavaScript files. JSX provides a more concise syntax for defining React elements and makes it easier to build and maintain user interfaces. Under the hood, JSX is transformed into regular JavaScript functions that create and return React elements. Using JSX is optional in React, but it has become a widely adopted convention because of its simplicity and readability.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Props
+In React, props (short for "properties") are a way to pass data from a parent component to a child component. Props are read-only and cannot be modified by the child component. They are commonly used to customize the behavior or appearance of a component, and can be any type of data. To pass props from a parent component to a child component, the parent component simply includes the props as attributes in the child component's JSX tag. The child component can then access these props as properties of the props object.
+```function Welcome(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+const element = <Welcome name="Arti" />;
+```
 
-### `npm test`
+## state
+In React, state is an object that represents the current condition or state of a component. Here's an example of how state can be used in a React component:
+```import React, { useState } from 'react';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function Counter() {
+  const [count, setCount] = useState(0);
 
-### `npm run build`
+  function increment() {
+    setCount(count + 1);
+  }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+```
+In this example, the Counter component uses the useState hook to define a state variable count with an initial value of 0. The component also defines an increment function that updates the state variable by calling the setCount function with a new value.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The Counter component renders a div with a p element that displays the current value of count, and a button element that calls the increment function when clicked. Each time the increment function is called, the state variable count is updated and the component re-renders with the new value, updating the user interface to reflect the new state.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Hooks
+In React, hooks are functions that allow developers to use state and other React features in functional components. Here's an example of how the useState hook can be used in a React component:
+```import React, { useState } from 'react';
 
-### `npm run eject`
+function Counter() {
+  const [count, setCount] = useState(0);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  function increment() {
+    setCount(count + 1);
+  }
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+```
